@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  /* Core Backgrounds */
+  --background: #03050A;
+  --panel: #080B12;
+  --card-bg: rgba(13, 17, 28, 0.65);
+  --glass: rgba(255, 255, 255, 0.02);
+  
+  /* Text & Typography */
+  --foreground: #F8FAFC;
+  --foreground-muted: #94A3B8;
+  --foreground-faint: #475569;
+  
+  /* Borders & Dividers */
+  --border: rgba(255, 255, 255, 0.06);
+  --border-highlight: rgba(255, 255, 255, 0.12);
+  
+  /* Semantic Brand Accents */
+  --primary: #3B82F6;       /* Trust, Main Action, Core UI */
+  --accent-purple: #8B5CF6; /* AI, Insights, Skill Leveling */
+  --success: #10B981;       /* Completed Courses, Passed Tests */
+  --warning: #F59E0B;       /* Streaks, Motivation, Urgent */
+  --error: #EF4444;         /* Destructive Actions */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-panel: var(--panel);
+  --color-card-bg: var(--card-bg);
+  --color-glass: var(--glass);
+  
+  --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-faint: var(--foreground-faint);
+  
+  --color-border: var(--border);
+  --color-border-highlight: var(--border-highlight);
+  
+  --color-primary: var(--primary);
+  --color-accent-purple: var(--accent-purple);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism card utilities */
+.glass-panel {
+  background: rgba(13, 17, 30, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Dynamic abstract meshes and grain overlay */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Custom Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+/* Custom keyframes for futuristic glowing animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.2;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 0.4;
+    filter: blur(35px);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s infinite ease-in-out;
+}
